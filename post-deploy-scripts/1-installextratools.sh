@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Versions
+GCLOUDCLIVERSION="395.0.0"
+
 ##Install Extra Tools
 echo "  Installing Tools ..."
 lastreleaseversion() { git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' "$1" | cut -d/ -f3- | tail -n1 | cut -d '^' -f 1 | cut -d 'v' -f 2; }
@@ -144,49 +147,15 @@ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v${VERSION}/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/bin/kind
 
-#Install jam
-echo "   Installing jam ..."
-tdnf install -y go > /dev/null 2>&1
-git clone https://github.com/paketo-buildpacks/jam > /dev/null 2>&1
-cd jam
-go build > /dev/null 2>&1
-mv jam /usr/bin/jam
-cd ..
-rm -rf jam
-rm -rf go
+#Install dkms
+echo "   Installing dkms ..."
+tdnf install -y dkms > /dev/null 2>&1
 
-#Install go-md2man
-echo "   Installing go-md2man ..."
-git clone https://github.com/cpuguy83/go-md2man > /dev/null 2>&1
-cd go-md2man
-make > /dev/null 2>&1
-mv ./bin/go-md2man /usr/bin/go-md2man
-cd ..
-rm -rf go-md2man
-rm -rf go
-
-#Install skopeo
-echo "   Installing skopeo ..."
-tdnf install -y go > /dev/null 2>&1
-tdnf install -y build-essential > /dev/null 2>&1
-tdnf install -y gpgme-devel > /dev/null 2>&1
-tdnf install -y device-mapper-devel > /dev/null 2>&1
-git clone https://github.com/containers/skopeo > /dev/null 2>&1
-cd skopeo
-make > /dev/null 2>&1
-mv ./bin/skopeo /usr/bin/skopeo
-cd ..
-rm -rf skopeo
-rm -rf go
-
-#Remove Utilities
-echo "   Removing Temporary Packages ..."
-tdnf remove -y build-essential > /dev/null 2>&1
-tdnf remove -y gpgme-devel > /dev/null 2>&1
-tdnf remove -y device-mapper-devel > /dev/null 2>&1
-tdnf remove -y go > /dev/null 2>&1
-rm -rf go
-rm -rf /root/go
+#Install Google SDK
+echo "   Installing Google SDK ..."
+curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz
+tar -xf google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz
+./google-cloud-sdk/install.sh
 
 #Clean up temp tools directory
 cd ..
