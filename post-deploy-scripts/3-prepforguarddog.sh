@@ -13,6 +13,8 @@ mkdir /etc/guarddog/rtl
 mkdir /etc/guarddog/keys
 mkdir /etc/guarddog/op
 mkdir /etc/guarddog/config_files
+mkdir /etc/guarddog/scripts
+mkdir /etc/guarddog/gunicorn
 
 #Install Drivers
 echo "   Installing Drivers ..."
