@@ -17,6 +17,6 @@ mkdir /etc/guarddog/config_files
 #Install Drivers
 echo "   Installing Drivers ..."
 cd /tmp
-git clone https://github.com/morrownr/88x2bu-20210702.git
+git clone https://github.com/morrownr/88x2bu-20210702.git > /dev/null 2>&1
 cd 88x2bu-20210702
-./install-driver.sh
+./install-driver.sh > /dev/null 2>&1

@@ -155,7 +155,7 @@ tdnf install -y dkms > /dev/null 2>&1
 echo "   Installing Google SDK ..."
 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz
 tar -xf google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz
-./google-cloud-sdk/install.sh
+./google-cloud-sdk/install.sh > /dev/null 2>&1
 
 #Clean up temp tools directory
 cd ..
