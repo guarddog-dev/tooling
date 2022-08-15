@@ -47,9 +47,9 @@ rm -rf /tmp/google-cloud-sdk.tar.gz
 
 #Auth Activate
 echo "   Auth Activating Google SDK ..."
-./usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file=/etc/guarddog/keys/service-account.json
+/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json"
 
 #Set Gcloud Project
 echo "   Setting Google SDK Project ..."
-./usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev
+/usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev
 
