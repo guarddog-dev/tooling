@@ -16,6 +16,13 @@ mkdir /etc/guarddog/config_files
 mkdir /etc/guarddog/scripts
 mkdir /etc/guarddog/gunicorn
 
+#Move service account file
+mv /root/setup/service-account.json /etc/guarddog/keys/service-acccount.json
+
+#Set environment settings
+echo "   Setting Environment Variable ..."
+echo 'DEV' > /etc/guarddog/opt/env
+
 #Install Drivers
 echo "   Installing Drivers ..."
 cd /tmp
@@ -38,4 +45,11 @@ tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz > /dev/null 2>&1
 /usr/local/gcloud/google-cloud-sdk/install.sh --override-components gcloud --usage-reporting false --path-update true --rc-path /root/.bashrc --quiet > /dev/null 2>&1
 rm -rf /tmp/google-cloud-sdk.tar.gz
 
+#Auth Activate
+echo "   Auth Activating Google SDK ..."
+./usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file=/etc/guarddog/keys/service-account.json
+
+#Set Gcloud Project
+echo "   Setting Google SDK Project ..."
+./usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev
 
