@@ -191,18 +191,6 @@ tdnf remove -y go > /dev/null 2>&1
 rm -rf go
 rm -rf /root/go
 
-## GuardDog Specific
-
-#Install dkms
-echo "   Installing dkms ..."
-tdnf install -y dkms > /dev/null 2>&1
-
-#Install Google SDK
-echo "   Installing Google SDK ..."
-curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz
-tar -xf google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz
-./google-cloud-sdk/install.sh --override-components gcloud --quiet > /dev/null 2>&1
-
 #Clean up temp tools directory
 cd ..
 rmdir tools
