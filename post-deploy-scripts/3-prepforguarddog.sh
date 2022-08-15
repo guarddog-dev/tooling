@@ -51,5 +51,5 @@ echo "   Auth Activating Google SDK ..."
 
 #Set Gcloud Project
 echo "   Setting Google SDK Project ..."
-/usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev
+echo "y" | /usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev
 
