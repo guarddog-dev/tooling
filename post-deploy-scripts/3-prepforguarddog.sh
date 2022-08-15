@@ -32,11 +32,10 @@ echo "   Installing Google SDK ..."
 GCLOUDCLIVERSION="397.0.0"
 mkdir -p /usr/local/gcloud
 cd /tmp
-wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz > /dev/null 2>&1
 mv google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz google-cloud-sdk.tar.gz
-tar -xf google-cloud-sdk.tar.gz
-tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz
-/usr/local/gcloud/google-cloud-sdk/install.sh --override-components gcloud --usage-reporting false --path-update true --rc-path /root/.bashrc --quiet
+tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz > /dev/null 2>&1
+/usr/local/gcloud/google-cloud-sdk/install.sh --override-components gcloud --usage-reporting false --path-update true --rc-path /root/.bashrc --quiet > /dev/null 2>&1
 rm -rf /tmp/google-cloud-sdk.tar.gz
 
 
