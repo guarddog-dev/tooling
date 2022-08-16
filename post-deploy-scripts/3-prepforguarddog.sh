@@ -46,6 +46,15 @@ tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz > /dev/null 2>&1
 rm -rf /tmp/google-cloud-sdk.tar.gz
 source /usr/local/gcloud/google-cloud-sdk/path.bash.inc
 
+#Link gcloud to bin
+ln -s \
+  /usr/local/gcloud/google-cloud-sdk/bin/gcloud \
+  /usr/local/bin/
+
+#Install gcloud Docker-Credential-GCR
+echo "   Installing Google SDK Docker-Credential-GCR..."
+/usr/local/gcloud/google-cloud-sdk/bin/gcloud components install docker-credential-gcr --quiet > /dev/null 2>&1
+
 #Auth Activate
 echo "   Auth Activating Google SDK ..."
 /usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json"
