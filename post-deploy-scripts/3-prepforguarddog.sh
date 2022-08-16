@@ -44,6 +44,7 @@ mv google-cloud-cli-${GCLOUDCLIVERSION}-linux-x86_64.tar.gz google-cloud-sdk.tar
 tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz > /dev/null 2>&1
 /usr/local/gcloud/google-cloud-sdk/install.sh --override-components gcloud --usage-reporting false --path-update true --rc-path /root/.bashrc --quiet > /dev/null 2>&1
 rm -rf /tmp/google-cloud-sdk.tar.gz
+source /usr/local/gcloud/google-cloud-sdk/path.bash.inc
 
 #Auth Activate
 echo "   Auth Activating Google SDK ..."
@@ -56,3 +57,7 @@ echo "y" | /usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guar
 #Authorize Docker with Google SDK
 echo "   Authorizing Docker with Google SDK ..."
 /usr/local/gcloud/google-cloud-sdk/bin/gcloud auth configure-docker --quiet
+
+#Pull Docker Image
+echo "   Pulling Docker Image ..."
+docker pull gcr.io/guarddog-dev/dfido:vm-1.0.0
