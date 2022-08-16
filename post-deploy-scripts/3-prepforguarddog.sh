@@ -55,6 +55,11 @@ ln -s \
 echo "   Installing Google SDK Docker-Credential-GCR..."
 /usr/local/gcloud/google-cloud-sdk/bin/gcloud components install docker-credential-gcr --quiet > /dev/null 2>&1
 
+#Link docker-credential-gcloud to bin
+ln -s \
+  /usr/local/gcloud/google-cloud-sdk/bin/docker-credential-gcloud \
+  /usr/local/bin/
+
 #Auth Activate
 echo "   Auth Activating Google SDK ..."
 /usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json" > /dev/null 2>&1
