@@ -17,7 +17,7 @@ mkdir /etc/guarddog/scripts
 mkdir /etc/guarddog/gunicorn
 
 #Move service account file
-mv /root/setup/service-account.json /etc/guarddog/keys/service-acccount.json
+mv /root/setup/service-account.json /etc/guarddog/keys/service-account.json
 
 #Set environment settings
 echo "   Setting Environment Variable ..."
