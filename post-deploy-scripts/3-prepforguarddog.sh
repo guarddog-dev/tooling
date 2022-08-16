@@ -57,16 +57,16 @@ echo "   Installing Google SDK Docker-Credential-GCR..."
 
 #Auth Activate
 echo "   Auth Activating Google SDK ..."
-/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json"
+/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json" > /dev/null 2>&1
 
 #Set Gcloud Project
 echo "   Setting Google SDK Project ..."
-echo "y" | /usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev
+echo "y" | /usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev > /dev/null 2>&1
 
 #Authorize Docker with Google SDK
 echo "   Authorizing Docker with Google SDK ..."
-/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth configure-docker --quiet
+/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth configure-docker --quiet > /dev/null 2>&1
 
 #Pull Docker Image
 echo "   Pulling Docker Image ..."
-docker pull gcr.io/guarddog-dev/dfido:vm-1.0.0
+docker pull gcr.io/guarddog-dev/dfido:vm-1.0.0 > /dev/null 2>&1
