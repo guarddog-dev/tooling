@@ -53,3 +53,6 @@ echo "   Auth Activating Google SDK ..."
 echo "   Setting Google SDK Project ..."
 echo "y" | /usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev
 
+#Authorize Docker with Google SDK
+echo "   Authorizing Docker with Google SDK ..."
+/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth configure-docker --quiet
