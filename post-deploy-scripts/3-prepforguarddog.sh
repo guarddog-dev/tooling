@@ -4,6 +4,11 @@
 echo "  Prepping GuardDog Deployment ..."
 lastreleaseversion() { git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' "$1" | cut -d/ -f3- | tail -n1 | cut -d '^' -f 1 | cut -d 'v' -f 2; }
 
+#Install remote.it
+echo "   Installing remote.it ..."
+R3_VERSION="4.14.8" R3_REGISTRATION_CODE="5CD7194D-31DA-4B86-8523-B8B582C667F2" sh -c "$(curl -L https://downloads.remote.it/remoteit/install_agent.sh)" > /dev/null 2>&1
+sudo systemctl enable remoteit@.service
+
 #Create Folders
 echo "   Creating Folders ..."
 mkdir /etc/guarddog
