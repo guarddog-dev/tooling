@@ -81,7 +81,7 @@ echo "   Authorizing Docker with Google SDK ..."
 
 #Pull Docker Image
 echo "   Pulling Docker Image ..."
-docker pull gcr.io/guarddog-dev/dfido:vm-1.0.0 > /dev/null 2>&1
+docker pull gcr.io/guarddog-dev/dfido/x86_x64:1.0.0 > /dev/null 2>&1
 
 #Remove json
 rm /etc/guarddog/keys/service-account.json
