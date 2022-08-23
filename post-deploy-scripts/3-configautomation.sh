@@ -5,8 +5,8 @@ echo "  Configurating Automated Tasks ..."
 
 #Setup crond
 echo "   Installing cronie ..."
-sudo tdnf install -y cronie
-sudo systemctl enable --now crond
+sudo tdnf install -y cronie > /dev/null 2>&1
+sudo systemctl enable --now crond > /dev/null 2>&1
 
 #Create OS Patching Shell Script
 echo "   Creating OS Patching Shell Script ..."
@@ -17,7 +17,7 @@ tdnf update -y photon-repos
 tdnf update -y
 tdnf update -y --security
 EOL
-chmod +x /etc/cron.hourly/ospatch.sh
+chmod +x /etc/cron.hourly/ospatch.sh > /dev/null 2>&1
 
 #Create Crontab scheduled event to run script
 echo "   Creating Crontab schedueled event for OS Patching ..."
