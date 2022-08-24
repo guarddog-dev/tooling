@@ -24,7 +24,7 @@ mkdir /etc/guarddog/scripts
 mkdir /etc/guarddog/gunicorn
 
 #Move service account file
-mv /root/setup/service-account.json /etc/guarddog/keys/service-account.json
+#mv /root/setup/service-account.json /etc/guarddog/keys/service-account.json
 
 #Set environment settings
 echo "   Setting Environment Variable ..."
@@ -68,20 +68,20 @@ ln -s \
   /usr/local/bin/
 
 #Auth Activate
-echo "   Auth Activating Google SDK ..."
-/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json" > /dev/null 2>&1
+#echo "   Auth Activating Google SDK ..."
+#/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json" > /dev/null 2>&1
 
 #Set Gcloud Project
-echo "   Setting Google SDK Project ..."
-echo "y" | /usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev > /dev/null 2>&1
+#echo "   Setting Google SDK Project ..."
+#echo "y" | /usr/local/gcloud/google-cloud-sdk/bin/gcloud config set project guarddog-dev > /dev/null 2>&1
 
 #Authorize Docker with Google SDK
-echo "   Authorizing Docker with Google SDK ..."
-/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth configure-docker --quiet > /dev/null 2>&1
+#echo "   Authorizing Docker with Google SDK ..."
+#/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth configure-docker --quiet > /dev/null 2>&1
 
 #Pull Docker Image
-echo "   Pulling Docker Image ..."
-docker pull gcr.io/guarddog-dev/dfido/x86_x64:1.0.0 > /dev/null 2>&1
+#echo "   Pulling Docker Image ..."
+#docker pull gcr.io/guarddog-dev/dfido/x86_x64:1.0.0 > /dev/null 2>&1
 
 #Remove json
-rm /etc/guarddog/keys/service-account.json
+#rm /etc/guarddog/keys/service-account.json
