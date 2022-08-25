@@ -24,6 +24,8 @@ chmod +x *.sh
 #Update Automation Scripts
 echo "   Replacing Deployment Automation ..."
 mv *.* /root/automation/.
+mkdir /root/automation/dist
+mv provisioning /root/automation/dist/provisioning 
 
 #Cleanup
 echo "   Cleaning up Repo Download ..."
