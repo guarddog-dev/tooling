@@ -24,7 +24,7 @@ mkdir /etc/guarddog/scripts
 mkdir /etc/guarddog/gunicorn
 
 #Move service account file
-#mv /root/setup/service-account.json /etc/guarddog/keys/service-account.json
+mv /root/setup/service-account.json /etc/guarddog/keys/service-account.json
 
 #Set environment settings
 echo "   Setting Environment Variable ..."
@@ -68,8 +68,8 @@ ln -s \
   /usr/local/bin/
 
 #Auth Activate
-#echo "   Auth Activating Google SDK ..."
-#/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json" > /dev/null 2>&1
+echo "   Auth Activating Google SDK ..."
+/usr/local/gcloud/google-cloud-sdk/bin/gcloud auth activate-service-account vm-service@guarddog-dev.iam.gserviceaccount.com --key-file="/etc/guarddog/keys/service-account.json" > /dev/null 2>&1
 
 #Set Gcloud Project
 #echo "   Setting Google SDK Project ..."
