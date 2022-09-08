@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Configuring Automated tasks
-echo "  Configurating Automated Tasks ..."
+echo "  Configuring Automated Tasks ..."
 
 #Setup crond
 echo "   Installing cronie ..."
