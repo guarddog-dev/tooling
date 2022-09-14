@@ -23,9 +23,10 @@ chmod +x *.sh
 
 #Update Automation Scripts
 echo "   Replacing Deployment Automation ..."
-mv *.* /root/automation/.
-mkdir /root/automation/dist
-mv provisioning /root/automation/dist/provisioning 
+#mv *.* /root/automation/.
+find $CURRENTPATH/ -maxdepth 1 -type f -print0 | xargs -0 mv -t /root/automation
+#mkdir /root/automation/dist
+#mv provisioning /root/automation/dist/provisioning 
 
 #Cleanup
 echo "   Cleaning up Repo Download ..."
