@@ -3,6 +3,9 @@
 #Versions
 GCLOUDCLIVERSION="395.0.0"
 
+#move run_octant script to bin
+mv run_octant.sh /usr/local/bin/run_octant
+
 ##Install Extra Tools
 echo "  Installing Tools ..."
 lastreleaseversion() { git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' "$1" | cut -d/ -f3- | tail -n1 | cut -d '^' -f 1 | cut -d 'v' -f 2; }
@@ -181,6 +184,28 @@ mv ./bin/skopeo /usr/bin/skopeo
 cd ..
 rm -rf skopeo
 rm -rf go
+
+#Install Octant 
+#Octant Version
+echo "   Installing octant ..."
+OCTVERSION=0.25.1
+OCTTAR1="octant_"
+OCTTAR2="_Linux-64bit"
+OCTTAR3=".tar.gz"
+OCTTAR=$OCTTAR1$OCTVERSION$OCTTAR2$OCTTAR3
+OCTNAME=$OCTTAR1$OCTVERSION$OCTTAR2
+#download
+wget https://github.com/vmware-tanzu/octant/releases/download/v$OCTVERSION/$OCTTAR > /dev/null 2>&1
+#decompress
+tar -xzvf $OCTTAR > /dev/null 2>&1
+#cd to octant
+cd $OCTNAME > /dev/null 2>&1
+#move octant to the right folder
+cp octant /usr/local/bin/octant > /dev/null 2>&1
+#clean up
+cd ..
+rm -rf $OCTNAME > /dev/null 2>&1
+rm -rf $OCTTAR > /dev/null 2>&1
 
 #Remove Utilities
 echo "   Removing Temporary Packages ..."
