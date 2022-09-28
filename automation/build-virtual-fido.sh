@@ -1,6 +1,6 @@
 #!/bin/bash
 # Setup Velero
-echo '  Creating Unmanaged Cluster with with Virtual Fido ...'
+echo '  Creating Tanzu Kubernetes Unmanaged Cluster with with Virtual Fido ...'
 
 # Versions
 #Tanzu/Kubernetes cluster name
