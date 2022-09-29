@@ -73,7 +73,7 @@ metadata:
 spec:
   containers:
   - name: vfido
-    image: gcr.io/guarddog-dev/dfido/x86_x64:1.0.9
+    image: gcr.io/guarddog-dev/dfido/x86_x64:1.0.10
     env:
     - name: DEVICE_NAME
       value: #@ data.values.DEVICE_NAME
@@ -100,9 +100,9 @@ ytt -f /root/automation/virtualfido.yaml -v DEVICE_NAME=$(python3 /root/setup/ge
 
 # Validate that the pod is ready
 echo "   Validate that vfido pod is ready ..."
-THENAMESPACE="vfido"
-THEPOD=$(kubectl get po -n $THENAMESPACE | grep portainer | cut -d " " -f 1)
-while [[ $(kubectl get po -n $THENAMESPACE $THEPOD -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "Waiting for pod $THEPOD to be ready" && sleep 1; done
+PODNAME="vfido"
+THEPOD=$(kubectl get po $PODNAME | grep PODNAME | cut -d " " -f 1)
+while [[ $(kubectl get po $THEPOD -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "Waiting for pod $THEPOD to be ready" && sleep 1; done
 echo "   Pod $THEPOD is now ready ..."
 
 echo "   Build Completed ..."
