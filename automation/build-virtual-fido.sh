@@ -101,7 +101,7 @@ ytt -f /root/automation/virtualfido.yaml -v DEVICE_NAME=$(python3 /root/setup/ge
 # Validate that the pod is ready
 echo "   Validate that vfido pod is ready ..."
 PODNAME="vfido"
-THEPOD=$(kubectl get po $PODNAME | grep PODNAME | cut -d " " -f 1)
+THEPOD=$(kubectl get po $PODNAME | grep $PODNAME | cut -d " " -f 1)
 while [[ $(kubectl get po $THEPOD -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "Waiting for pod $THEPOD to be ready" && sleep 1; done
 echo "   Pod $THEPOD is now ready ..."
 
