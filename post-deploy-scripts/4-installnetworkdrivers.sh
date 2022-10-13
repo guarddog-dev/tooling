@@ -2,13 +2,14 @@
 
 #set -euo pipefail
 
-echo "  Installing Network Drivers  ..."
+#Install required utilities (should already be in OVA)
 tdnf install -y pciutils usbutils > /dev/null 2>&1
 
 PCIDEVICE=$(lspci | grep 'Network controller')
 #If Wireless card is Intel, install linux-firmware and load the Intel Drivers
 if [[ $PCIDEVICE == *"Intel"* ]]; 
 then
+	echo "  Installing Network Drivers  ..."
 	echo "   Intel Wireless Network Controller found ..."
 	  
 	#Intel Only packages
@@ -47,6 +48,7 @@ fi
 USBDEVICE=$(lsusb | grep Realtek)
 if [[ $USBDEVICE == *"RTL88x2bu"* ]]; 
 then
+	echo "  Installing USB Network Drivers  ..."
 	echo "   Realtek RTL88x2bu Network Controller found ..."
 	  
 	#Realtek RTL88x2bu Only packages
