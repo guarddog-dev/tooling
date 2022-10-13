@@ -9,7 +9,7 @@ PCIDEVICE=$(lspci | grep 'Network controller')
 #If Wireless card is Intel, install linux-firmware and load the Intel Drivers
 if [[ $PCIDEVICE == *"Intel"* ]]; 
 then
-	echo "  Installing Network Drivers  ..."
+	echo "  Installing PCI Network Drivers  ..."
 	echo "   Intel Wireless Network Controller found ..."
 	  
 	#Intel Only packages
