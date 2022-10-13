@@ -59,15 +59,15 @@ then
 	git clone https://github.com/morrownr/88x2bu-20210702.git
 	cd /tmp/88x2bu-20210702
 	#make installer
-	make clean
-	make
-	sudo make install
+	make clean > /dev/null 2>&1
+	make > /dev/null 2>&1
+	sudo make install > /dev/null 2>&1
 	#update config options
 	sed -i 's/options 88x2bu rtw_drv_log_level=0 rtw_led_ctrl=1 rtw_vht_enable=1 rtw_power_mgnt=1 rtw_switch_usb_mode=0/options 88x2bu rtw_drv_log_level=0 rtw_led_ctrl=1 rtw_vht_enable=1 rtw_power_mgnt=0 rtw_switch_usb_mode=2/g' /etc/modprobe.d/88x2bu.conf
 	  
 	#probe for devices that need driver
-	depmod -a
-	modprobe 88x2bu
+	depmod -a > /dev/null 2>&1
+	modprobe 88x2bu > /dev/null 2>&1
 	  
 	#Enable wifi service for new device
 	echo "   Enabling Wireless Services ..."
