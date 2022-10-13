@@ -30,7 +30,7 @@ then
 	#Enable wifi service for new device
 	echo "   Enabling Wireless Services ..."
 	WLANSTATUS=$(systemctl is-active wpa_supplicant@wlan0.service)
-	if [[ -z "$WLANSTATUS" ]]; 
+	if [[ $WLANSTATUS == "inactive" ]]; 
 	then
 		systemctl enable wpa_supplicant@wlan0.service > /dev/null 2>&1
 		systemctl start wpa_supplicant@wlan0.service > /dev/null 2>&1
@@ -76,7 +76,7 @@ then
 	#Enable wifi service for new device
 	echo "   Enabling Wireless Services ..."
 	WLANSTATUS=$(systemctl is-active wpa_supplicant@wlan0.service)
-	if [[ -z "$WLANSTATUS" ]]; 
+	if [[ $WLANSTATUS == "inactive" ]]; 
 	then
 		systemctl enable wpa_supplicant@wlan0.service > /dev/null 2>&1
 		systemctl start wpa_supplicant@wlan0.service > /dev/null 2>&1
