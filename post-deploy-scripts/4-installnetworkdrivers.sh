@@ -10,7 +10,7 @@ PCIDEVICE=$(lspci | grep 'Network controller')
 if [[ $PCIDEVICE == *"Intel"* ]]; 
 then
 	echo "  Installing PCI Network Drivers  ..."
-	echo "   Intel Wireless Network Controller found ..."
+	echo "   Discovered Intel Wireless Network Controller ..."
 	  
 	#Intel Only packages
 	echo "   Installing Linux packages for Wireless Network Controller support ..."
@@ -49,7 +49,7 @@ USBDEVICE=$(lsusb | grep Realtek)
 if [[ $USBDEVICE == *"RTL88x2bu"* ]]; 
 then
 	echo "  Installing USB Network Drivers  ..."
-	echo "   Realtek RTL88x2bu Network Controller found ..."
+	echo "   Discovered Realtek RTL88x2bu Network Controller ..."
 	  
 	#Realtek RTL88x2bu Only packages
 	echo "   Installing Linux packages for Wireless Network Controller support ..."
@@ -65,7 +65,7 @@ then
 	make clean > /dev/null 2>&1
 	make > /dev/null 2>&1
 	sudo make install > /dev/null 2>&1
-	
+
 	#update config options
 	sed -i 's/options 88x2bu rtw_drv_log_level=0 rtw_led_ctrl=1 rtw_vht_enable=1 rtw_power_mgnt=1 rtw_switch_usb_mode=0/options 88x2bu rtw_drv_log_level=0 rtw_led_ctrl=1 rtw_vht_enable=1 rtw_power_mgnt=0 rtw_switch_usb_mode=2/g' /etc/modprobe.d/88x2bu.conf
 	  
