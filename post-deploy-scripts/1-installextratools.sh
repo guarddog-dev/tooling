@@ -205,6 +205,10 @@ cd ..
 rm -rf $OCTNAME > /dev/null 2>&1
 rm -rf $OCTTAR > /dev/null 2>&1
 
+#Install fluxcd
+echo "   Installing flux-cli ..."
+curl -s https://fluxcd.io/install.sh | sudo bash > /dev/null 2>&1
+
 #Remove Utilities
 echo "   Removing Temporary Packages ..."
 tdnf remove -y build-essential > /dev/null 2>&1
