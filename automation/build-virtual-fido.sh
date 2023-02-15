@@ -73,7 +73,7 @@ metadata:
 spec:
   containers:
   - name: vfido
-    image: gcr.io/guarddog-dev/dfido/x86_x64:dev_latest
+    image: gcr.io/guarddog-dev/dfido/x86_x64:1.0.15
     env:
     - name: DEVICE_NAME
       value: #@ data.values.DEVICE_NAME
