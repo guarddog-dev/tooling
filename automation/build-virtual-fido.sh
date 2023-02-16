@@ -106,3 +106,6 @@ while [[ $(kubectl get po $THEPOD -o 'jsonpath={..status.conditions[?(@.type=="R
 echo "   Pod $THEPOD is now ready ..."
 
 echo "   Build Completed ..."
+
+echo "   Completing licensing processes ..."
+sleep 60s
