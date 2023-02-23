@@ -112,7 +112,7 @@ metadata:
 spec:
   containers:
   - name: vfido
-    image: gcr.io/guarddog-dev/dfido/x86_x64:1.0.15
+    image: gcr.io/guarddog-dev/dfido/x86_x64:latest
     env:
     - name: DEVICE_NAME
       value: #@ data.values.DEVICE_NAME
@@ -147,4 +147,4 @@ echo "   Pod $THEPOD is now ready ..."
 echo "   Build Completed ..."
 
 echo "   Completing licensing processes ..."
-sleep 60s
+sleep 90s
